@@ -18,15 +18,28 @@ function createToken(user) {
     return token;
 }
 
-module.exports = function(app, express) {
+module.exports = function(app, express, io) {
     var api = express.Router();
 
-    api.post('/signup', function(req ,res) {
+    api.get('/all_notes', function(req, res) {
+        Notes.find({}, function(err, notes) {
+            if(err) {
+                res.send(err);
+                return;
+            }
+
+            res.json(notes);
+        });
+    });
+
+    api.post('/signup', function(req, res) {
         var user = new User({
             name: req.body.name,
             username: req.body.username,
             password: req.body.password
         });
+
+        var token = createToken(user);
 
         user.save(function(err) {
             if(err) {
@@ -35,7 +48,9 @@ module.exports = function(app, express) {
             }
 
             res.json({
-                message: 'User has been created!'
+                success: true,
+                message: 'User has been created!',
+                token: token
             });
         });
     });
@@ -56,7 +71,7 @@ module.exports = function(app, express) {
     api.post('/login', function(req, res) {
         User.findOne({
             username: req.body.username
-        }).select('password').exec(function(err, user) {
+        }).select('name username password').exec(function(err, user) {
             if(err) throw err;
 
             if(!user) {
@@ -113,18 +128,19 @@ module.exports = function(app, express) {
                 content: req.body.content
             });
 
-            note.save(function(err) {
+            note.save(function(err, newNote) {
                 if(err) {
                     res.send(err);
                     return;
                 }
 
-              res.json({
+                io.emit('note', newNote);
+                res.json({
                     message: "New Note Created!"
                 });
             });
 
-            console.log(req.decoded._id);
+            // console.log(req.decoded._id);
         })
 
         .get(function(req, res) {

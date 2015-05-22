@@ -1,0 +1,31 @@
+<!--<div class="container" ng-controller="MainController as login">
+    <form method="post" ng-submit="login.doLogin()">
+        <p><input type="text" id="inputUsername" class="form-control" placeholder="User name" ng-model="login.loginData.username" /></p>
+        <p><input type="password" id="inputPassword" ng-model="login.loginData.password" class="form-control" placeholder="Password" /></p>
+        <p class="text-center"><button class="btn btn-lg btn-success" type="submit">Login</button></p>
+    </form>
+</div>-->
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pr-wrap">
+                <div class="pass-reset">
+                    <label>
+                        Enter the email you signed up with</label>
+                    <input type="email" placeholder="Email" />
+                    <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+                </div>
+            </div>
+            <div class="wrap" ng-controller="MainController as login">
+                <p class="form-title">
+                    Sign In</p>
+                <form class="login" method="post" ng-submit="login.doLogin()">
+                    <input type="text" name="username" placeholder="Username" ng-model="login.loginData.username" />
+                    <input type="password" name="password" placeholder="Password" ng-model="login.loginData.password" />
+                    <input type="submit" name="submit" value="Sign In" class="btn btn-success btn-sm" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

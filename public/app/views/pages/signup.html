@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pr-wrap">
+                <div class="pass-reset">
+                    <label>
+                        Enter the email you signed up with</label>
+                    <input type="email" placeholder="Email" />
+                    <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
+                </div>
+            </div>
+            <div class="wrap" ng-controller="UserCreateController as user">
+                <p class="form-title">Sign Up</p>
+                <form class="login" method="post" ng-submit="user.signupUser()">
+                    <input type="text" name="name" placeholder="Full name" ng-model="user.userData.user" />
+                    <input type="text" name="username" placeholder="Username" ng-model="user.userData.username" />
+                    <input type="password" name="password" placeholder="Password" ng-model="user.userData.password" />
+                    <input type="submit" value="Sign Up" class="btn btn-danger btn-sm" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
