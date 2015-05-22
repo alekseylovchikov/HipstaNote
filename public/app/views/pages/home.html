@@ -19,7 +19,7 @@
 
             <div class="panel panel-success">
                 <div class="panel panel-heading">Notes</div>
-                <div class="panel-body" ng-repeat="each in note.notes">
+                <div class="panel-body" ng-repeat="each in note.notes | reverse">
                     <p>{{ each.content }}</p>
                 </div>
             </div>
