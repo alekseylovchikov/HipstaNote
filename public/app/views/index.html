@@ -51,9 +51,9 @@
         </nav>
 
         <div class="jumbotron">
-            <div class="container text-center">
-                <header>
-                    <h1><a href="/">HipstaNote</a></h1>
+            <div class="row text-center">
+                <header class="col-md-12">
+                    <a href="/"><img class="img-respnosive" src="app/views/logo.png" alt="" /></a>
                 </header>
             </div>
         </div>
@@ -65,17 +65,5 @@
         <footer class="text-center">
             <p class="text-inverse">Application on <a href="https://github.com/alekseylovchikov/HipstaNote" target="_blank">GitHub</a></p>
         </footer>
-
-        <script>
-            $(document).ready(function () {
-                $('.forgot-pass').click(function(event) {
-                    $(".pr-wrap").toggleClass("show-pass-reset");
-                });
-
-                $('.pass-reset-submit').click(function(event) {
-                    $(".pr-wrap").removeClass("show-pass-reset");
-                });
-            });
-        </script>
     </body>
 </html>

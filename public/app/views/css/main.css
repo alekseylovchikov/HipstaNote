@@ -197,3 +197,7 @@ footer {
 footer p {
     padding-top: 38px;
 }
+
+.img-responsive {
+    margin: 0 auto;
+}
