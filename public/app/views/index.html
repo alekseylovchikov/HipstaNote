@@ -37,6 +37,7 @@
             <div class="container container-fluid">
                 <div class="collapse navbar-collapse">
                     <ul class="nav navbar-nav">
+                        <li><a href="/">HipstaNote</a></li>
                         <li><a href="/allNotes">All Notes</a></li>
                     </ul>
 
@@ -51,9 +52,9 @@
         </nav>
 
         <div class="jumbotron">
-            <div class="row text-center">
-                <header class="col-md-12">
-                    <h1 class="text-inverse">HipstaNote</h1>
+            <div class="text-center">
+                <header>
+                    <h1><a href="/">HipstaNote</a></h1>
                 </header>
             </div>
         </div>
@@ -65,5 +66,17 @@
         <footer class="text-center">
             <p class="text-inverse">Application on <a href="https://github.com/alekseylovchikov/HipstaNote" target="_blank">GitHub</a></p>
         </footer>
+
+        <script>
+            $(document).ready(function () {
+                $('.forgot-pass').click(function(event) {
+                    $(".pr-wrap").toggleClass("show-pass-reset");
+                });
+
+                $('.pass-reset-submit').click(function(event) {
+                    $(".pr-wrap").removeClass("show-pass-reset");
+                });
+            });
+        </script>
     </body>
 </html>
